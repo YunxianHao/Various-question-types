@@ -1,0 +1,14 @@
+Leetcode：461
+//The Hamming distance between two integers refers to the number of different positions of these two numbers corresponding to binary bits.
+//Give you two integers x and y, calculate and return the Hamming distance between them.
+Code:
+int hammingDistance(int x, int y){
+    int dif = 0;
+    int xor = x^y;
+    while(xor)
+    {
+        dif += xor&1;
+        xor>>=1;
+    }   
+    return dif;
+}
