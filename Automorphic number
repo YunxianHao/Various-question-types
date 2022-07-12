@@ -1,0 +1,30 @@
+//Question： An automorphic number means that the mantissa of the square of a number is equal to the natural number of the number itself. Request the number of automorphic numbers within n (including n)
+For example: 25^2= 625, 76^2= 57769376^2=87909376
+#include<stdio.h>
+#include<math.h>
+int main()
+{
+    int n = 0;
+    int count = 0;
+    scanf("%d",&n);
+    for(int i = 0; i <= n; i++)
+    {
+        int k = i;
+
+        int squ = i * i;
+        while(k)
+        {
+            if(squ % 10 == k % 10)
+            {
+                k /= 10;
+                squ/=10;
+            }
+            else
+                break;
+        }
+        if(k == 0)
+            count++;
+    }
+    printf("%d",count);
+    return 0;
+}
