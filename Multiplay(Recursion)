@@ -1,0 +1,8 @@
+//Leetcode:2657
+//Question:Recursive multiplication. Write a recursive function that multiplies two positive integers without using the * operator. You can use plus sign, minus sign and displacement, but be stingy.
+//Code:
+int multiply(int A, int B){
+    if(B == 0)
+    return 0;
+    return A + multiply(A,B-1);
+}
