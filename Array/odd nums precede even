@@ -1,0 +1,28 @@
+//Reorder arrays so odd numbers precede even numbers
+//Enter an integer array and implement a function to adjust the order of the numbers in the array, so that all odd numbers are in the first half of the array, and all even numbers are in the second half of the array, and ensure that the relative positions between odd and odd numbers, and between even and even numbers remain unchanged
+//Code:
+class Solution {
+public:
+    void reOrderArray(vector<int> &array) {
+
+        int k = 0;
+        //General idea: traverse the array. If the element is odd, save its value and move all the even numbers before this position back one bit
+//Finally, a position will be vacated and the odd number will be inserted into the中
+        for(int i = 0; i < array.size(); i++)
+        {
+            if(array[i] % 2 == 1)
+            {
+                int temp = array[i];
+                
+                int j = i;
+                while(k < j)
+                {
+                    array[j] = array[j-1];
+                    j--;
+                }
+
+                array[k++] = temp; 
+            }
+        }
+    }
+};
