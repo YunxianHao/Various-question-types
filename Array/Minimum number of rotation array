@@ -1,0 +1,29 @@
+//Question:
+There is a non descending array with a length of n, such as [1,2,3,4,5]. Rotate it, that is, move the first several elements of an array to the end of the array to become a rotated array, such as [3,4,5,1,2], or [4,5,1,2,3]. Excuse me, given such a rotated array, find the minimum value in the array.
+Requirements: space complexity: O (1), time complexity: O (log n)
+
+//Code:
+class Solution {
+public:
+    int minNumberInRotateArray(vector<int> rotateArray) {
+        int left = 0;
+        int right = rotateArray.size() - 1;
+        int mid = 0;
+
+        while(left < right)
+        {
+            mid = (left + right) / 2;
+            if(rotateArray[right] < rotateArray[mid])
+            {
+                left = mid + 1;
+            }
+            else if(rotateArray[right] > rotateArray[mid])
+            {
+                right = mid;
+            }
+            else
+            right--;
+        }
+            return rotateArray[left];
+    }
+};
